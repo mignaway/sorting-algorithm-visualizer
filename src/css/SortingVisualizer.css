@@ -1,0 +1,34 @@
+#visualizer {
+    position: absolute;
+    left: 0; 
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+    height: 75%;
+}
+
+.array-pillar {
+    width: 4px;
+    border-radius: 4px;
+    background-color: #EB3B50;
+    transition: height .15s, background-color .02s;
+}
+
+.pillar-white-temp-animation {
+    animation: pillar-white-temp-animation .02s;
+}
+@keyframes pillar-white-temp-animation {
+    0% {
+        background-color: white;
+    }
+    99% {
+        background-color: white;
+    }
+    100% {
+        background-color: #0F6E6E;
+    }
+}

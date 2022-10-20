@@ -1,0 +1,111 @@
+#navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    background: linear-gradient(180deg, #1D1B23 0%, rgba(29, 27, 35, 0) 100%);
+}
+#GenerateArrayButton {
+    position: absolute;
+    left: 3vh;
+    top: 3vh;
+}
+#sort-selection {
+    position: absolute;
+    top: 3vh;
+    margin: 1vh 0;
+}
+.change-sort-arrow {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .3s;
+}
+.change-sort-arrow:hover {
+    background-color: rgba(255, 255, 255, .05);
+}
+
+#SettingsMenu {
+    position: absolute;
+    right: 3vh;
+    top: 3vh;
+}
+#settings-menu-open {
+    cursor: pointer;
+}
+#settings-menu-popup {
+    position: absolute;
+    background-color: rgba(255, 255, 255, .05);
+    right: 0;
+    margin-top: 5vh;
+    padding: 15px 25px;
+    border-radius: 10px;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+}
+#settings-menu-popup h1 {
+    white-space: nowrap;
+}
+#settings-input-size input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 200px;
+    -webkit-appearance: none;
+    height: 1px;
+    background: white;
+    outline: none;
+    border-radius: 5px;
+}
+#settings-input-size input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #3BEB61;
+    cursor: pointer;
+    border-radius: 50%; 
+}
+
+#settings-input-size input::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: #3BEB61;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#play-action,
+#stop-action {
+    cursor: pointer;
+    display: none;
+    z-index: 10;
+}
+#play-action.control-active, #stop-action.control-active {
+    display: block;
+
+}
+#control-sorting-button {
+    margin-top: 5vh;
+}
+.control-active {
+    animation: control-fade-in .3s ease-in-out;
+}
+@keyframes control-fade-in {
+    0% {
+        margin-top: -20px;
+        opacity: 0;
+    }
+    100%{
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+
+#speed-multiplier-text {
+    background-color: rgba(0, 0, 0, .1);
+    padding: 5px 20px;
+    border-radius: 5px;
+}
