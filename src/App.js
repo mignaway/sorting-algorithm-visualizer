@@ -16,7 +16,7 @@ function App() {
     isCurrentlySortedRef.current = isCurrentlySorted
   }, [isCurrentlySorted])
 
-  const sorting_algorithms = { bubble: 'Bubble sort', insertion: 'Insertion sort', selection: 'Selection sort', merge: 'Merge sort' }
+  const sorting_algorithms = { bubble: 'Bubble sort', insertion: 'Insertion sort', selection: 'Selection sort' } // merge: 'Merge sort'
   const [generateArraySize, setGenerateArraySize] = useState(100);
   const SORTING_ARRAY_SPEED = 1000
 
