@@ -9,6 +9,17 @@
     justify-content: center;
     gap: 4px;
     height: 75%;
+    padding: 0 2vh
+}
+@media screen and (max-width: 900px) {
+    #visualizer {
+        gap: .4vh !important;
+    }
+
+    .array-pillar {
+        width: .4vh !important;
+        border-radius: .4vh !important;
+    }
 }
 
 .array-pillar {

@@ -4,3 +4,11 @@
     border-radius: 10px;
     cursor: pointer;
 }
+@media screen and (max-width: 900px) {
+    #GenerateArrayButton h1 {
+        display: none;
+    }
+    #GenerateArrayButton {
+        padding: 5px !important;
+    }
+}

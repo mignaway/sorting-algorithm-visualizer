@@ -1,33 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 
 function SettingsMenu(props){
     const [settingsVisible, setSettingsVisible ] = useState(false);
+    
     return(
         <div id="SettingsMenu" className="flex-row flex-v-center">
             <div className="flex-column" style={{position: 'relative'}}>
-                <svg id="settings-menu-open" onClick={() => setSettingsVisible(!settingsVisible)} style={{ opacity: props.isSortingActive ? .5 : 1}} width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg id="settings-menu-open" onClick={() => setSettingsVisible(!settingsVisible)} style={{ opacity: props.isSortingActive ? .6 : 1}} width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3.625 6.04167H8.45833M25.375 6.04167H13.2917M3.625 14.5H18.125M25.375 14.5H22.9583M3.625 22.9583H6.04167M25.375 22.9583H10.875" stroke="white" strokeWidth="1.28889" strokeLinecap="round" />
                     <path d="M10.875 8.45833C12.2097 8.45833 13.2917 7.37635 13.2917 6.04167C13.2917 4.70698 12.2097 3.625 10.875 3.625C9.54035 3.625 8.45837 4.70698 8.45837 6.04167C8.45837 7.37635 9.54035 8.45833 10.875 8.45833Z" stroke="white" strokeWidth="1.28889" strokeLinecap="round" />
                     <path d="M20.5417 16.9167C21.8764 16.9167 22.9583 15.8347 22.9583 14.5C22.9583 13.1653 21.8764 12.0833 20.5417 12.0833C19.207 12.0833 18.125 13.1653 18.125 14.5C18.125 15.8347 19.207 16.9167 20.5417 16.9167Z" stroke="white" strokeWidth="1.28889" strokeLinecap="round" />
                     <path d="M8.45829 25.375C9.79298 25.375 10.875 24.293 10.875 22.9583C10.875 21.6237 9.79298 20.5417 8.45829 20.5417C7.1236 20.5417 6.04163 21.6237 6.04163 22.9583C6.04163 24.293 7.1236 25.375 8.45829 25.375Z" stroke="white" strokeWidth="1.28889" strokeLinecap="round" />
                 </svg>
-                <div id="settings-menu-popup" style={{ display: (settingsVisible && !props.isSortingActive) ? 'grid' : 'none'}}>
-                    <h1 className="main-text">Input size</h1>
-                    <div id="settings-input-size" className="flex-row flex-v-center"><input type="range" min="1" max="200" onInput={(input) => props.changeInputSizeValue(input.target.value)} /><h1 className="main-text text-small m-l-10">{props.inputSize}</h1></div>
-                    <h1 className="main-text">Speed</h1>
-                    <div id="settings-speed" className="flex-row flex-v-center">
-                        <div className="cursor-pointer">
-                            <svg onClick={() => props.changeSortingSpeedHandler(false)} width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M14 15L9 10L14 5L13 3L6 10L13 17L14 15Z" fill="white" />
-                            </svg>
-                        </div>
-                        <h1 id="speed-multiplier-text" className="main-text m-h-10" style={{ fontSize: '16px', color: '#3BEB61' }}>{props.currentSpeedMultiplier}x</h1>
-                        <div className="cursor-pointer">
-                            <svg onClick={() => props.changeSortingSpeedHandler(true)} width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 15L11 10L6 5L7 3L14 10L7 17L6 15Z" fill="white" />
-                            </svg>
+                <div id="settings-menu-popup" style={{ display: (settingsVisible && !props.isSortingActive) ? 'block' : 'none'}}>
+                    <div id="settings-menu-popup-settings">
+                        <h1 className="main-text">Input size</h1>
+                        <div id="settings-input-size" className="flex-row flex-v-center"><input type="range" min="1" max="100" onInput={(input) => props.changeInputSizeValue(input.target.value)} /><h1 className="main-text text-small m-l-10">{props.inputSize}</h1></div>
+                        <h1 className="main-text">Speed</h1>
+                        <div id="settings-speed" className="flex-row flex-v-center">
+                            <div className="cursor-pointer">
+                                <svg onClick={() => props.changeSortingSpeedHandler(false)} width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14 15L9 10L14 5L13 3L6 10L13 17L14 15Z" fill="white" />
+                                </svg>
+                            </div>
+                            <h1 id="speed-multiplier-text" className="main-text m-h-10" style={{ fontSize: '16px', color: '#3BEB61' }}>{props.currentSpeedMultiplier}x</h1>
+                            <div className="cursor-pointer">
+                                <svg onClick={() => props.changeSortingSpeedHandler(true)} width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 15L11 10L6 5L7 3L14 10L7 17L6 15Z" fill="white" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
+                    <div id="settings-separator"></div>
+                    <div id="settings-menu-popup-shortcuts">
+                        <svg width="76" height="30" viewBox="0 0 76 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="76" height="30" rx="3.75" fill="#23202A" />
+                            <rect x="4.75" y="4.75" width="66.5" height="20.5" rx="3" stroke="white" strokeOpacity="0.1" strokeWidth="1.5" />
+                            <path d="M10.6597 17.12C10.0837 17.12 9.58772 17.024 9.17172 16.832C8.76372 16.64 8.44772 16.364 8.22372 16.004C7.99972 15.644 7.88372 15.216 7.87572 14.72H8.95572C8.95572 15.16 9.10372 15.508 9.39972 15.764C9.70372 16.02 10.1237 16.148 10.6597 16.148C11.1637 16.148 11.5557 16.024 11.8357 15.776C12.1237 15.528 12.2677 15.184 12.2677 14.744C12.2677 14.392 12.1717 14.084 11.9797 13.82C11.7957 13.556 11.5277 13.372 11.1757 13.268L9.98772 12.896C9.38772 12.712 8.92372 12.404 8.59572 11.972C8.27572 11.54 8.11572 11.032 8.11572 10.448C8.11572 9.976 8.21972 9.568 8.42772 9.224C8.64372 8.872 8.94372 8.6 9.32772 8.408C9.71172 8.208 10.1637 8.108 10.6837 8.108C11.4517 8.108 12.0677 8.324 12.5317 8.756C12.9957 9.18 13.2317 9.748 13.2397 10.46H12.1597C12.1597 10.028 12.0277 9.692 11.7637 9.452C11.5077 9.204 11.1437 9.08 10.6717 9.08C10.2077 9.08 9.84372 9.192 9.57972 9.416C9.32372 9.64 9.19572 9.952 9.19572 10.352C9.19572 10.712 9.29172 11.024 9.48372 11.288C9.67572 11.552 9.95172 11.74 10.3117 11.852L11.5117 12.236C12.0957 12.42 12.5477 12.732 12.8677 13.172C13.1877 13.612 13.3477 14.128 13.3477 14.72C13.3477 15.2 13.2357 15.62 13.0117 15.98C12.7877 16.34 12.4717 16.62 12.0637 16.82C11.6637 17.02 11.1957 17.12 10.6597 17.12ZM15.311 19.16V10.4H16.391V11.66H16.607L16.391 11.912C16.391 11.408 16.555 11.012 16.883 10.724C17.219 10.428 17.659 10.28 18.203 10.28C18.867 10.28 19.395 10.5 19.787 10.94C20.187 11.372 20.387 11.968 20.387 12.728V14.66C20.387 15.164 20.295 15.6 20.111 15.968C19.935 16.336 19.683 16.62 19.355 16.82C19.035 17.02 18.651 17.12 18.203 17.12C17.667 17.12 17.231 16.972 16.895 16.676C16.559 16.38 16.391 15.984 16.391 15.488L16.607 15.74H16.367L16.391 17.24V19.16H15.311ZM17.843 16.184C18.299 16.184 18.655 16.048 18.911 15.776C19.175 15.504 19.307 15.112 19.307 14.6V12.8C19.307 12.288 19.175 11.896 18.911 11.624C18.655 11.352 18.299 11.216 17.843 11.216C17.403 11.216 17.051 11.356 16.787 11.636C16.523 11.916 16.391 12.304 16.391 12.8V14.6C16.391 15.096 16.523 15.484 16.787 15.764C17.051 16.044 17.403 16.184 17.843 16.184ZM24.4263 17.12C23.7303 17.12 23.1823 16.944 22.7823 16.592C22.3823 16.232 22.1823 15.748 22.1823 15.14C22.1823 14.524 22.3823 14.04 22.7823 13.688C23.1823 13.336 23.7223 13.16 24.4023 13.16H26.4423V12.5C26.4423 12.092 26.3183 11.78 26.0703 11.564C25.8303 11.34 25.4863 11.228 25.0383 11.228C24.6463 11.228 24.3183 11.312 24.0543 11.48C23.7903 11.64 23.6383 11.86 23.5983 12.14H22.5183C22.5903 11.572 22.8583 11.12 23.3223 10.784C23.7863 10.448 24.3663 10.28 25.0623 10.28C25.8223 10.28 26.4223 10.476 26.8623 10.868C27.3023 11.26 27.5223 11.792 27.5223 12.464V17H26.4663V15.74H26.2863L26.4663 15.56C26.4663 16.04 26.2783 16.42 25.9023 16.7C25.5343 16.98 25.0423 17.12 24.4263 17.12ZM24.6903 16.268C25.2023 16.268 25.6223 16.14 25.9503 15.884C26.2783 15.628 26.4423 15.3 26.4423 14.9V13.964H24.4263C24.0663 13.964 23.7823 14.064 23.5743 14.264C23.3663 14.464 23.2623 14.736 23.2623 15.08C23.2623 15.448 23.3863 15.74 23.6343 15.956C23.8903 16.164 24.2423 16.268 24.6903 16.268ZM32.2457 17.12C31.7177 17.12 31.2537 17.02 30.8537 16.82C30.4617 16.62 30.1577 16.332 29.9417 15.956C29.7257 15.572 29.6177 15.12 29.6177 14.6V12.8C29.6177 12.272 29.7257 11.82 29.9417 11.444C30.1577 11.068 30.4617 10.78 30.8537 10.58C31.2537 10.38 31.7177 10.28 32.2457 10.28C33.0057 10.28 33.6177 10.484 34.0817 10.892C34.5457 11.3 34.7897 11.856 34.8137 12.56H33.7337C33.7097 12.136 33.5657 11.812 33.3017 11.588C33.0457 11.356 32.6937 11.24 32.2457 11.24C31.7737 11.24 31.3977 11.376 31.1177 11.648C30.8377 11.912 30.6977 12.292 30.6977 12.788V14.6C30.6977 15.096 30.8377 15.48 31.1177 15.752C31.3977 16.024 31.7737 16.16 32.2457 16.16C32.6937 16.16 33.0457 16.044 33.3017 15.812C33.5657 15.58 33.7097 15.256 33.7337 14.84H34.8137C34.7897 15.544 34.5457 16.1 34.0817 16.508C33.6177 16.916 33.0057 17.12 32.2457 17.12ZM39.393 17.12C38.873 17.12 38.417 17.016 38.025 16.808C37.641 16.6 37.341 16.308 37.125 15.932C36.917 15.548 36.813 15.104 36.813 14.6V12.8C36.813 12.288 36.917 11.844 37.125 11.468C37.341 11.092 37.641 10.8 38.025 10.592C38.417 10.384 38.873 10.28 39.393 10.28C39.913 10.28 40.365 10.384 40.749 10.592C41.141 10.8 41.441 11.092 41.649 11.468C41.865 11.844 41.973 12.288 41.973 12.8V13.964H37.869V14.6C37.869 15.12 38.001 15.52 38.265 15.8C38.529 16.072 38.905 16.208 39.393 16.208C39.809 16.208 40.145 16.136 40.401 15.992C40.657 15.84 40.813 15.616 40.869 15.32H41.949C41.877 15.872 41.605 16.312 41.133 16.64C40.669 16.96 40.089 17.12 39.393 17.12ZM40.917 13.244V12.8C40.917 12.28 40.785 11.88 40.521 11.6C40.265 11.32 39.889 11.18 39.393 11.18C38.905 11.18 38.529 11.32 38.265 11.6C38.001 11.88 37.869 12.28 37.869 12.8V13.148H41.001L40.917 13.244Z" fill="white" fillOpacity="0.5" />
+                        </svg>
+                        <h1 className="main-text text-small opacity-50">start, stop, restart</h1>
+                        <svg width="66" height="30" viewBox="0 0 66 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="30" height="30" rx="3.75" fill="#23202A" />
+                            <rect x="4.5" y="4.5" width="21" height="21" rx="3" stroke="white" strokeOpacity="0.1" strokeWidth="1.5" />
+                            <path d="M14.5 19C14.5 19.2761 14.7239 19.5 15 19.5C15.2761 19.5 15.5 19.2761 15.5 19L14.5 19ZM15.3536 10.6464C15.1583 10.4512 14.8417 10.4512 14.6464 10.6464L11.4645 13.8284C11.2692 14.0237 11.2692 14.3403 11.4645 14.5355C11.6597 14.7308 11.9763 14.7308 12.1716 14.5355L15 11.7071L17.8284 14.5355C18.0237 14.7308 18.3403 14.7308 18.5355 14.5355C18.7308 14.3403 18.7308 14.0237 18.5355 13.8284L15.3536 10.6464ZM15.5 19L15.5 11L14.5 11L14.5 19L15.5 19Z" fill="white" fillOpacity="0.5" />
+                            <rect x="36" width="30" height="30" rx="3.75" fill="#23202A" />
+                            <rect x="40.5" y="4.5" width="21" height="21" rx="3" stroke="white" strokeOpacity="0.1" strokeWidth="1.5" />
+                            <path d="M50.5 11C50.5 10.7239 50.7239 10.5 51 10.5C51.2761 10.5 51.5 10.7239 51.5 11L50.5 11ZM51.3536 19.3536C51.1583 19.5488 50.8417 19.5488 50.6464 19.3536L47.4645 16.1716C47.2692 15.9763 47.2692 15.6597 47.4645 15.4645C47.6597 15.2692 47.9763 15.2692 48.1716 15.4645L51 18.2929L53.8284 15.4645C54.0237 15.2692 54.3403 15.2692 54.5355 15.4645C54.7308 15.6597 54.7308 15.9763 54.5355 16.1716L51.3536 19.3536ZM51.5 11L51.5 19L50.5 19L50.5 11L51.5 11Z" fill="white" fillOpacity="0.5" />
+                        </svg>
+                        <h1 className="main-text text-small opacity-50">increase/decrease speed [2x]</h1>
+                    </div> 
                 </div>
             </div>
         </div>

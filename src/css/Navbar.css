@@ -1,9 +1,12 @@
 #navbar {
+    position: absolute;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 10vh;
     background: linear-gradient(180deg, #1D1B23 0%, rgba(29, 27, 35, 0) 100%);
+    z-index: 80
 }
 #GenerateArrayButton {
     position: absolute;
@@ -36,23 +39,40 @@
 }
 #settings-menu-popup {
     position: absolute;
-    background-color: rgba(255, 255, 255, .05);
+    background-color: rgba(51, 48, 59, .95);
     right: 0;
     margin-top: 5vh;
     padding: 15px 25px;
     border-radius: 10px;
+    z-index: 50;
+}
+#settings-menu-popup-settings {
+    display: grid;
     gap: 10px;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     align-items: center;
 }
-#settings-menu-popup h1 {
+#settings-menu-popup-settings h1 {
     white-space: nowrap;
+}
+#settings-menu-popup-shortcuts {
+    display: grid;
+    gap: 5px 20px;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+}
+#settings-separator {
+    height: 1px;
+    opacity: .1;
+    margin: 2vh 0;
+    background-color: white;
 }
 #settings-input-size input {
     -webkit-appearance: none;
     appearance: none;
-    width: 200px;
+    width: 17.5vh;
     -webkit-appearance: none;
     height: 1px;
     background: white;
@@ -76,14 +96,18 @@
     cursor: pointer;
     border-radius: 50%;
 }
+#settings-input-size h1 {
+    width: 2vh;
+}
 
 #play-action,
-#stop-action {
+#stop-action,
+#reload-action {
     cursor: pointer;
     display: none;
     z-index: 10;
 }
-#play-action.control-active, #stop-action.control-active {
+#play-action.control-active, #reload-action.control-active, #stop-action.control-active {
     display: block;
 
 }
@@ -108,4 +132,6 @@
     background-color: rgba(0, 0, 0, .1);
     padding: 5px 20px;
     border-radius: 5px;
+    width: 30px;
+    text-align: center;
 }
