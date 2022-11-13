@@ -3,7 +3,7 @@
 </p>
 
 # Sorting Algorithm Visualizer
-<a href="https://mignaway.github.io/epub-reader-website/"><img src="https://user-images.githubusercontent.com/40722616/192098396-694ce4b1-15fb-495f-ba89-241043d2d8bd.svg"></a>
+<a href="https://mignaway.github.io/sorting-algorithm-visualizer/"><img src="https://user-images.githubusercontent.com/40722616/192098396-694ce4b1-15fb-495f-ba89-241043d2d8bd.svg"></a>
 
 
 Sorting Algorithm Visualizer is a website where you can test and see what most sorting algorithms do. It is possible to adjust the speed of sorting and the size of the input so that you can study the algorithm to your liking or even simply as a matter of visual relaxation.
